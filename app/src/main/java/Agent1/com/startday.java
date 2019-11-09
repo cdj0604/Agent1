@@ -34,15 +34,11 @@ public class startday extends Activity {
     long ttoday;
     long result1;
 
-    int resultValue=0;
+
     int resultValue1=0;
     Calendar calendar;  //Today
     Calendar calendar3;
 
-    public final String PREFERENCE = "cal";
-    public final String key04 = "key04";
-    public final String key03 = "key03";
-    public final String key02 = "key02";
     public final String key01 = "key01";
 
     public void onCreate(Bundle savedInstanceState) {
@@ -76,7 +72,7 @@ public class startday extends Activity {
         nextbtn.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),MainActivity.class);
+                Intent intent = new Intent(v.getContext(),finishday.class);
                 startActivity(intent);
             }
         });
@@ -95,7 +91,7 @@ public class startday extends Activity {
             calendar3.set(Calendar.MONTH, ddMonth);
             calendar3.set(Calendar.DATE, ddDay);
 
-             ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
+            ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
             ddday=calendar3.getTimeInMillis()/(24*60*60*1000);
             result1=ttoday-ddday; //현재까지 복무일
             resultValue1=(int)result1; //소집해재Dday
@@ -105,7 +101,7 @@ public class startday extends Activity {
     };
     void UpdateDday(){
         textDday1.setText(String.format("%d.%d.%d", ddYear, ddMonth+1, ddDay));  //선택 날짜 출력*/
-        textResult1.setText(String.format("%d 일",result1)); //복무일수
+      /*  textResult1.setText(String.format("%d 일",result1)); //복무일수*/
         setPreference(key01, String.valueOf(result1));
 
     }
