@@ -16,6 +16,7 @@ public class finishday extends Activity {
 
     TextView textDday;
     TextView textResult;
+    TextView test;
     Button nextbtn1;
     Button btnDate;
 
@@ -78,6 +79,7 @@ public class finishday extends Activity {
         });
 
 
+
     }
     DatePickerDialog.OnDateSetListener mDateSetListener=new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -98,16 +100,19 @@ public class finishday extends Activity {
             UpdateDday();
 
         }
+
     };
+
     void UpdateDday(){
         textDday.setText(String.format("%d.%d.%d", dYear,dMonth+1,dDay));  //선택 날짜 출력*/
        /* textResult.setText(String.format("%d 일",result)); //복무일수*/
         setPreference(key02, String.valueOf(result));
+        test.setText(String.format("D%d", result));
     }
 
     public void setPreference(String key, String value) {
-        SharedPreferences pref1 = getSharedPreferences("PREFERENCE02", Activity.MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref1.edit();
+        SharedPreferences preff = getSharedPreferences("PREFERENCE2", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preff.edit();
         editor.putString("key02", value);
         editor.commit();
     }

@@ -30,12 +30,19 @@
                     android:orientation="horizontal">
 
                 </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/money"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"></LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/setting"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal"></LinearLayout>
+
+
             </FrameLayout>
 
             <TabWidget
