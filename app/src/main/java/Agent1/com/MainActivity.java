@@ -7,10 +7,6 @@ import android.os.Bundle;
 import android.widget.TabHost;
 
 
-import android.app.TabActivity;
-import android.os.Bundle;
-import android.widget.TabHost;
-
 @SuppressWarnings("deprecation")
 public class MainActivity extends TabActivity{ // 상속이 TabActivity이다. 주의할 것!
 
