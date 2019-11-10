@@ -24,7 +24,9 @@ public class finishday extends Activity {
     int tMonth;
     int tDay;
 
-
+    int ddDay = 0;
+    int ddMonth =0;
+    int ddYear = 0;
 
     int dDay = 0;
     int dMonth =0;
@@ -33,6 +35,8 @@ public class finishday extends Activity {
     long dday;
     long today;
     long result;
+    long start;
+    long result1;
 
     int resultValue=0;
     int resultValue1=0;
@@ -41,6 +45,7 @@ public class finishday extends Activity {
     Calendar calendar3;
 
     public final String key02 = "key02";
+    public final String key03 = "key03";
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,11 +62,17 @@ public class finishday extends Activity {
         tMonth=calendar.get(Calendar.MONTH);
         tDay=calendar.get(Calendar.DAY_OF_MONTH);
 
-        /*입소날 선택 날짜구하기  */
+        /*소집해제 선택 날짜구하기  */
         calendar2=Calendar.getInstance();
         dYear=calendar2.get(Calendar.YEAR);
         dMonth=calendar2.get(Calendar.MONTH);
         dDay=calendar2.get(Calendar.DAY_OF_MONTH);
+
+        /*입소날 선택 날짜구하기  */
+        calendar3=Calendar.getInstance();
+        ddYear=calendar3.get(Calendar.YEAR);
+        ddMonth=calendar3.get(Calendar.MONTH);
+        ddDay=calendar3.get(Calendar.DAY_OF_MONTH);
 
         /* 소집해제 선택 날짜 구하기 */
         btnDate.setOnClickListener(new OnClickListener() {
@@ -87,15 +98,15 @@ public class finishday extends Activity {
             dYear=year;
             dMonth=monthOfYear;
             dDay=dayOfMonth;
-
-
             calendar2.set(Calendar.YEAR, dYear);
             calendar2.set(Calendar.MONTH, dMonth);
             calendar2.set(Calendar.DATE, dDay);
 
+            start=calendar.getTimeInMillis()/(24*60*60*1000);//입소날변환
             today=calendar.getTimeInMillis()/(24*60*60*1000);
             dday=calendar2.getTimeInMillis()/(24*60*60*1000);
             result=dday-today; //현재까지 복무일
+            result1=dday-today;
             resultValue1=(int)result; //소집해재Dday
             UpdateDday();
 
@@ -116,4 +127,5 @@ public class finishday extends Activity {
         editor.putString("key02", value);
         editor.commit();
     }
+
 }

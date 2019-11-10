@@ -85,12 +85,9 @@ public class startday extends Activity {
             ddYear=year;
             ddMonth=monthOfYear;
             ddDay=dayOfMonth;
-
-
             calendar3.set(Calendar.YEAR, ddYear);
             calendar3.set(Calendar.MONTH, ddMonth);
             calendar3.set(Calendar.DATE, ddDay);
-
             ttoday=calendar.getTimeInMillis()/(24*60*60*1000);
             ddday=calendar3.getTimeInMillis()/(24*60*60*1000);
             result1=ttoday-ddday; //현재까지 복무일
