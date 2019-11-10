@@ -20,7 +20,13 @@ public class MainActivity extends TabActivity{ // 상속이 TabActivity이다. �
         TabHost.TabSpec spec;
         Intent intent = new Intent().setClass(this, main.class);
 
-        spec = tabHost.newTabSpec("main").setIndicator("메인화면").setContent(intent);
+        spec = tabHost.newTabSpec("main").setIndicator("내프로필").setContent(intent);
+        tabHost.addTab(spec);
+
+        //세번째 탭 만들기
+        intent = new Intent().setClass(this, money.class);
+
+        spec = tabHost.newTabSpec("money").setIndicator("월급계산").setContent(intent);
         tabHost.addTab(spec);
 
         //두번째 탭 만들기

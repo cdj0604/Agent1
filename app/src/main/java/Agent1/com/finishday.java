@@ -107,7 +107,7 @@ public class finishday extends Activity {
         textDday.setText(String.format("%d.%d.%d", dYear,dMonth+1,dDay));  //선택 날짜 출력*/
        /* textResult.setText(String.format("%d 일",result)); //복무일수*/
         setPreference(key02, String.valueOf(result));
-        test.setText(String.format("D%d", result));
+    /*    test.setText(String.format("D%d", result));*/
     }
 
     public void setPreference(String key, String value) {

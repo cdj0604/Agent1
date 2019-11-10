@@ -2,41 +2,80 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="222dp"
         android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="150dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="2.소집해제일을 설정해주세요"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:textSize="30dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/btnDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:text="소집해제날 설정"
-            android:textSize="18sp" />
+            android:text="소집해제일 설정"
+            android:layout_gravity="center"
+            android:textSize="15sp"
+            app:cornerRadius="20dp"
+            app:backgroundTint="@android:color/holo_blue_light"
+            android:textColor="#FFF"
+            />
 
-        <TextView
-            android:id="@+id/textDday"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="7"
-            android:gravity="center"
-            android:textSize="20sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginLeft="100dp"
+                android:text="선택한 소해집해제날  :   "
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
+
+            <TextView
+                android:id="@+id/textDday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textSize="20sp" />
+        </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/nextbtn1"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="@drawable/nextbtn" />
+            android:background="@drawable/nextbtn"
+            android:layout_gravity="center"
+            android:layout_margin="50dp"
+            android:onClick="next"/>
     </LinearLayout>
 
 </LinearLayout>
