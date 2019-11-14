@@ -99,7 +99,7 @@ public class startday extends Activity {
     void UpdateDday(){
         textDday1.setText(String.format("%d.%d.%d", ddYear, ddMonth+1, ddDay));  //선택 날짜 출력
       /*  textResult1.setText(String.format("%d 일",result1)); //복무일수*/
-        setPreference(key01, String.valueOf(result1));
+        setPreference(key01, String.valueOf(ddday));
 
     }
 

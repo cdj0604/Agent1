@@ -52,16 +52,16 @@ public class MainActivity extends TabActivity{ // 상속이 TabActivity이다. �
         //처음 앱 실행시 탭 활성화 지정하기
         tabHost.setCurrentTab(0);
 
-        tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
+       /* tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
             public void onTabChanged(String tabId) {
                 for(int i = 0; i < tabHost.getTabWidget().getChildCount(); i++ ){
-                    tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#088a65"));
+                    tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#FFF"));
                 }
 
-                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#05ad7e"));
+                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#FFF"));
             }
-        });
+        });*/
 
     }
 }
