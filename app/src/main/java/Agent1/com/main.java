@@ -4,6 +4,7 @@ package Agent1.com;
         import androidx.core.app.NotificationCompat;
 
         import android.app.Activity;
+        import android.app.AlarmManager;
         import android.app.Notification;
         import android.app.NotificationChannel;
         import android.app.NotificationManager;
@@ -14,7 +15,9 @@ package Agent1.com;
         import android.graphics.BitmapFactory;
         import android.media.RingtoneManager;
         import android.os.Bundle;
+        import android.util.Log;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import org.w3c.dom.Text;
 
@@ -36,6 +39,7 @@ public class main extends AppCompatActivity {
         textView = (TextView)findViewById(R.id.textview);
         textView1 = (TextView)findViewById(R.id.textview1);
         textViewp = (TextView)findViewById(R.id.TextViewp);
+
 
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();
@@ -59,16 +63,17 @@ public class main extends AppCompatActivity {
         String a =  pref.getString("key01", String.valueOf(0));
         int Startr = Integer.parseInt(a);
         int Startresult = r1 - Startr;
-        textView.setText("총 복무일"+ Startresult + "일");
+        textView.setText( Startresult + "일");
 
         // int p = Integer.parseInt(a);
         int percent = (int) ((double) Startresult / (double) 666 * 100.0);
 
         String pp = Integer.toString(percent);
 
-        textViewp.setText(pp +"%");
+        textViewp.setText(pp +"% 복무중" );
 
-
+        setPreference("key03",pp);
+        setPreference("key04",result1); //디데이
 
         //-------------------------알림생성---------------------------
         String channelId = "channel";
@@ -102,10 +107,16 @@ public class main extends AppCompatActivity {
 
 
         notifManager.notify(0, builder.build());
-        
+
 
     }
 
+    public void setPreference(String key, String value) {
+        SharedPreferences pref = getSharedPreferences("PREFERENCE03", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString(key, value);
+        editor.commit();
+    }
 
 
 }

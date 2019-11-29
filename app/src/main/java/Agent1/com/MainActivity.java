@@ -23,14 +23,14 @@ public class MainActivity extends TabActivity{ // 상속이 TabActivity이다. �
         tabHost.getTabWidget().setDividerDrawable(null);
 
         ImageView tabwidget01 = new ImageView(this);
-        tabwidget01.setImageResource(R.drawable.one);
+        tabwidget01.setImageResource(R.drawable.tab_01);
 
         ImageView tabwidget02 = new ImageView(this);
-        tabwidget02.setImageResource(R.drawable.two);
+        tabwidget02.setImageResource(R.drawable.tab_02);
 
 
         ImageView tabwidget03 = new ImageView(this);
-        tabwidget03.setImageResource(R.drawable.three);
+        tabwidget03.setImageResource(R.drawable.tab_03);
 
         Intent intent = new Intent().setClass(this, main.class);
         spec = tabHost.newTabSpec("main").setIndicator(tabwidget01).setContent(intent);
@@ -54,12 +54,12 @@ public class MainActivity extends TabActivity{ // 상속이 TabActivity이다. �
 
        /* tabHost.setOnTabChangedListener(new TabHost.OnTabChangeListener() {
             @Override
-            public void onTabChanged(String tabId) {
+           public void onTabChanged(String tabId) {
                 for(int i = 0; i < tabHost.getTabWidget().getChildCount(); i++ ){
-                    tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#FFF"));
+                    tabHost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#088a65"));
                 }
 
-                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#FFF"));
+                tabHost.getTabWidget().getChildAt(tabHost.getCurrentTab()).setBackgroundColor(Color.parseColor("#05ad7e"));
             }
         });*/
 

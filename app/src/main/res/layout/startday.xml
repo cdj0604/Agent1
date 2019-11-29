@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bg">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
             android:layout_marginTop="150dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="1.입소날을 선택해주세요"
+            android:text="1.소집날짜를 선택해주세요"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:textSize="30dp"
             android:textStyle="bold" />
@@ -72,7 +73,7 @@
             android:id="@+id/nextbtn"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:background="@drawable/nextbtn"
+            android:background="@drawable/next"
             android:layout_gravity="center"
             android:layout_margin="50dp"
             android:onClick="next"/>

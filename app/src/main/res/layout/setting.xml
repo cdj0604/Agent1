@@ -11,9 +11,4 @@
         android:text="재설정하기"
         android:onClick="reset"/>
 
-    <Button
-        android:id="@+id/create"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="알림띄우기" />
 </LinearLayout>

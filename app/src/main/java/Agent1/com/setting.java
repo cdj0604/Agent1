@@ -28,7 +28,6 @@ public class setting extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.setting);
         Button reset = (Button)findViewById(R.id.reset);
-        Button create = (Button)findViewById(R.id.create);
 
 
 
