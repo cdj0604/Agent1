@@ -16,6 +16,7 @@ package Agent1.com;
         import android.media.RingtoneManager;
         import android.os.Bundle;
         import android.util.Log;
+        import android.widget.ProgressBar;
         import android.widget.TextView;
         import android.widget.Toast;
 
@@ -39,6 +40,7 @@ public class main extends AppCompatActivity {
         textView = (TextView)findViewById(R.id.textview);
         textView1 = (TextView)findViewById(R.id.textview1);
         textViewp = (TextView)findViewById(R.id.TextViewp);
+
 
 
         /* 오늘 날짜 구하기 */
@@ -70,11 +72,25 @@ public class main extends AppCompatActivity {
 
         String pp = Integer.toString(percent);
 
-        textViewp.setText(pp +"% 복무중" );
+        textViewp.setText(pp+"/100(%)" );
 
         setPreference("key03",pp);
         setPreference("key04",result1); //디데이
 
+
+        try {
+            // 문자열을 숫자로 변환.
+            int value = Integer.parseInt(pp);
+            // 변환된 값을 프로그레스바에 적용.
+            ProgressBar progress = (ProgressBar) findViewById(R.id.progress) ;
+            progress.setProgress(value) ;
+
+        } catch (Exception e) {
+            // 토스트(Toast) 메시지 표시.
+            Toast toast = Toast.makeText(main.this, "Invalid number format",
+                    Toast.LENGTH_SHORT);
+            toast.show();
+        }
         //-------------------------알림생성---------------------------
         String channelId = "channel";
         String channelName = "Channel Name";

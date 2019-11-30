@@ -16,6 +16,7 @@ import org.w3c.dom.Text;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class money extends Activity {
+
     public int d;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,7 @@ public class money extends Activity {
         Button Button2 = (Button)findViewById(R.id.button2);
         Button Button3 = (Button)findViewById(R.id.button3);
         Button Button4 = (Button)findViewById(R.id.button4);
+
 
 
     }
@@ -43,15 +45,23 @@ public class money extends Activity {
     }
     public void onClick(View v){
         EditText input1 = (EditText)findViewById(R.id.edit01);
-        EditText input2 = (EditText)findViewById(R.id.edit02);
-        EditText input3 = (EditText)findViewById(R.id.edit03);
         TextView result = (TextView)findViewById(R.id.textView3);
+
+        SharedPreferences pref=getSharedPreferences("pref",Activity.MODE_PRIVATE);
+
+        String eat=pref.getString("insert_eat", "");
+        String bus=pref.getString("insert_bus", "");
+        int intbus = Integer.parseInt(bus);
+        int inteat = Integer.parseInt(eat);
         int a = Integer.parseInt(input1.getText().toString()); //출근일수
-        int b = Integer.parseInt(input2.getText().toString()); //교통비
-        int c = Integer.parseInt(input3.getText().toString()); //식비
-        result.setText(Integer.toString((a*b)+(a*c)+d) + "원");
+
+        int sum = (a*intbus)+(a*inteat)+d;
+
+        String stringsum = Integer.toString(sum);
+        result.setText(stringsum + "원");
 
     }
+
 
 
 }

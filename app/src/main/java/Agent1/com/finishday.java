@@ -84,7 +84,7 @@ public class finishday extends Activity {
         nextbtn1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(),MainActivity.class);
+                Intent intent = new Intent(v.getContext(),insert.class);
                 startActivity(intent);
             }
         });

@@ -26,6 +26,7 @@
         <activity android:name=".setting"></activity>
         <activity android:name=".finishday"></activity>
         <activity android:name=".money"></activity>
+        <activity android:name=".insert"></activity>
     </application>
 
 </manifest>
