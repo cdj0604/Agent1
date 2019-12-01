@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TabHost;
+import android.widget.Toast;
 
 
 @SuppressWarnings("deprecation")
@@ -64,4 +65,5 @@ public class MainActivity extends TabActivity{ // 상속이 TabActivity이다. �
         });*/
 
     }
-}
+
+    }

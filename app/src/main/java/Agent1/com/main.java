@@ -32,6 +32,8 @@ public class main extends AppCompatActivity {
     TextView textViewp;
 
     long today;
+    private BackPressCloseHandler backPressCloseHandler;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,9 +42,7 @@ public class main extends AppCompatActivity {
         textView = (TextView)findViewById(R.id.textview);
         textView1 = (TextView)findViewById(R.id.textview1);
         textViewp = (TextView)findViewById(R.id.TextViewp);
-
-
-
+        
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();
         int tYear=calendar.get(Calendar.YEAR);
@@ -113,18 +113,25 @@ public class main extends AppCompatActivity {
         builder.setContentTitle("소집해제") // required
                 .setContentText(pp + "% / "+ "D - "+result)  // required
                 .setDefaults(Notification.DEFAULT_ALL) // 알림, 사운드 진동 설정
-                //.setAutoCancel(true) // 알림 터치시 반응 후 삭제
+                .setAutoCancel(true) // 알림 터치시 반응 후 삭제
                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
                 .setSmallIcon(android.R.drawable.btn_star).setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher_background))
                 .setBadgeIconType(NotificationCompat.BADGE_ICON_LARGE)
                 .setContentIntent(pendingIntent);
 
-        builder.setOngoing(true);
+      //  builder.setOngoing(true); 알림삭제금지
 
 
         notifManager.notify(0, builder.build());
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
+       
 
+    }
+
+    @Override public void onBackPressed() {
+        //super.onBackPressed();
+         backPressCloseHandler.onBackPressed();
     }
 
     public void setPreference(String key, String value) {
@@ -133,6 +140,5 @@ public class main extends AppCompatActivity {
         editor.putString(key, value);
         editor.commit();
     }
-
 
 }

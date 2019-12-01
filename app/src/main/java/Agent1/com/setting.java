@@ -20,7 +20,7 @@ import androidx.annotation.RequiresApi;
 import androidx.core.app.NotificationCompat;
 
 public class setting extends Activity {
-
+    private BackPressCloseHandler backPressCloseHandler;
     public final String PREFERENCE = " ";
     NotificationManager notificationManager;
     PendingIntent intent;
@@ -29,6 +29,7 @@ public class setting extends Activity {
         setContentView(R.layout.setting);
         Button reset = (Button)findViewById(R.id.reset);
 
+        backPressCloseHandler = new BackPressCloseHandler(this);
 
 
     }
@@ -44,5 +45,10 @@ public class setting extends Activity {
         SharedPreferences.Editor editor = pref.edit();
         editor.clear();
         editor.commit();
+    }
+
+    @Override public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
     }
 }
