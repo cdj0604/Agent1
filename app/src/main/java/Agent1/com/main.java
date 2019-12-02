@@ -30,7 +30,7 @@ public class main extends AppCompatActivity {
     TextView textView1;
     TextView textView2;
     TextView textViewp;
-
+    TextView bm;
     long today;
     private BackPressCloseHandler backPressCloseHandler;
 
@@ -42,7 +42,7 @@ public class main extends AppCompatActivity {
         textView = (TextView)findViewById(R.id.textview);
         textView1 = (TextView)findViewById(R.id.textview1);
         textViewp = (TextView)findViewById(R.id.TextViewp);
-        
+        bm = (TextView)findViewById(R.id.bm);
         /* 오늘 날짜 구하기 */
         Calendar calendar = Calendar.getInstance();
         int tYear=calendar.get(Calendar.YEAR);
@@ -58,14 +58,19 @@ public class main extends AppCompatActivity {
         int Finishr = Integer.parseInt(b); //r==소집해제 선택날 (r-현재)
         int result = Finishr-r1;
         String result1 = Integer.toString(result); //텍스트뷰에 넣기위해 결과값 스트링으로 변환
-        textView1.setText("D - "+result);
-
+        textView1.setText(result1);
+        //소집해재날 가져오기
+        SharedPreferences date = getSharedPreferences("date", Activity.MODE_PRIVATE);
+        String getdate = date.getString("date", "");
+        bm.setText(getdate);
         //입소날 가져오기
         SharedPreferences pref = getSharedPreferences("PREFERENCE", Activity.MODE_PRIVATE);
         String a =  pref.getString("key01", String.valueOf(0));
         int Startr = Integer.parseInt(a);
         int Startresult = r1 - Startr;
-        textView.setText( Startresult + "일");
+
+        String Startresult1 = Integer.toString(Startresult);//텍스트뷰에 넣기위해 결과값 스트링으로 변환
+        textView.setText( Startresult1); //현재까지 총 복무일수 text
 
         // int p = Integer.parseInt(a);
         int percent = (int) ((double) Startresult / (double) 666 * 100.0);

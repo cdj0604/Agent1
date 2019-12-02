@@ -48,7 +48,7 @@ public class money extends Activity {
     }
 
 
-    public void onClick(View v) {
+    public void onClick(View v) { //계산하기버튼
         EditText input1 = (EditText) findViewById(R.id.edit01);//출근일수입력
         TextView result = (TextView) findViewById(R.id.textView3);//월급보여주기
 
@@ -57,7 +57,7 @@ public class money extends Activity {
         String eat = pref.getString("insert_eat", "");
         String bus = pref.getString("insert_bus", "");
         String getinput1 = input1.getText().toString();//출근일수입력
-
+        input1.setSelection(input1.length()); //뒤부터입력
         if (getinput1.getBytes().length <= 0 || d==0) {
             Toast.makeText(getApplicationContext(), "계급과 출근일수를 정확히 입력해주세요.", Toast.LENGTH_SHORT).show();
 
@@ -69,8 +69,8 @@ public class money extends Activity {
 
             String stringsum = Integer.toString(sum);
 
-
-            result.setText(stringsum + "원");
+            result.setVisibility(View.VISIBLE); //버튼클릭시 월급보여주기
+            result.setText("  이번달월급 "+stringsum + " 원");
 
 
         }

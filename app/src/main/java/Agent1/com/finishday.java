@@ -84,6 +84,7 @@ public class finishday extends Activity {
         nextbtn1.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(v.getContext(),insert.class);
                 startActivity(intent);
             }
@@ -116,9 +117,17 @@ public class finishday extends Activity {
 
     void UpdateDday(){
         textDday.setText(String.format("%d.%d.%d", dYear,dMonth+1,dDay));  //선택 날짜 출력*/
-       /* textResult.setText(String.format("%d 일",result)); //복무일수*/
+        /* textResult.setText(String.format("%d 일",result)); //복무일수*/
         setPreference(key02, String.valueOf(dday));
-    /*    test.setText(String.format("D%d", result));*/
+        String date = String.format("%d.%d.%d", dYear,dMonth+1,dDay);
+
+        SharedPreferences pref = getSharedPreferences("date", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("date", date);
+        // TODO : 필수 없으면 저장안됨
+        editor.commit();
+
+        /*    test.setText(String.format("D%d", result));*/
     }
 
     public void setPreference(String key, String value) {
