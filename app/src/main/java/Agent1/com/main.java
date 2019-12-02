@@ -16,6 +16,7 @@ package Agent1.com;
         import android.media.RingtoneManager;
         import android.os.Bundle;
         import android.util.Log;
+        import android.view.View;
         import android.widget.ProgressBar;
         import android.widget.TextView;
         import android.widget.Toast;
@@ -30,8 +31,14 @@ public class main extends AppCompatActivity {
     TextView textView1;
     TextView textView2;
     TextView textViewp;
+    TextView check;
     TextView bm;
     long today;
+    Calendar calendar;  //Today
+    int  tYear= 0;
+    int tMonth =0;
+    int tDay = 0;
+
     private BackPressCloseHandler backPressCloseHandler;
 
 
@@ -44,30 +51,35 @@ public class main extends AppCompatActivity {
         textViewp = (TextView)findViewById(R.id.TextViewp);
         bm = (TextView)findViewById(R.id.bm);
         /* 오늘 날짜 구하기 */
-        Calendar calendar = Calendar.getInstance();
-        int tYear=calendar.get(Calendar.YEAR);
-        int tMonth=calendar.get(Calendar.MONTH);
-        int tDay=calendar.get(Calendar.DAY_OF_MONTH);
+        calendar=Calendar.getInstance();
+         tYear=calendar.get(Calendar.YEAR);
+         tMonth=calendar.get(Calendar.MONTH);
+         tDay=calendar.get(Calendar.DAY_OF_MONTH);
 
         today=calendar.getTimeInMillis()/(24*60*60*1000);
         int r1 = (int)(long) today;// 현재날짜 int로 변환
+       /* String c = Integer.toString(r1);
+        check.setText(c);*/
         //-------------------------------------------------------------------------------------
         //소집해재날 가져오기
         SharedPreferences pref1 = getSharedPreferences("PREFERENCE2",Activity.MODE_PRIVATE);
-        String b = pref1.getString("key02",String.valueOf(0));
-        int Finishr = Integer.parseInt(b); //r==소집해제 선택날 (r-현재)
+        String b = pref1.getString("key02",String.valueOf(0));//b에 소집해제 정수값으로받아옴
+        Log.d("날짜값",b);
+        int Finishr = Integer.parseInt(b); //r==소집해제 선택날 (r-현재) //b값을 디데이 계산을위해 인트로 변환
         int result = Finishr-r1;
+
         String result1 = Integer.toString(result); //텍스트뷰에 넣기위해 결과값 스트링으로 변환
         textView1.setText(result1);
         //소집해재날 가져오기
         SharedPreferences date = getSharedPreferences("date", Activity.MODE_PRIVATE);
         String getdate = date.getString("date", "");
         bm.setText(getdate);
+
         //입소날 가져오기
         SharedPreferences pref = getSharedPreferences("PREFERENCE", Activity.MODE_PRIVATE);
         String a =  pref.getString("key01", String.valueOf(0));
         int Startr = Integer.parseInt(a);
-        int Startresult = r1 - Startr;
+        int Startresult = r1 - Startr + 2;
 
         String Startresult1 = Integer.toString(Startresult);//텍스트뷰에 넣기위해 결과값 스트링으로 변환
         textView.setText( Startresult1); //현재까지 총 복무일수 text
@@ -130,7 +142,7 @@ public class main extends AppCompatActivity {
         notifManager.notify(0, builder.build());
         backPressCloseHandler = new BackPressCloseHandler(this);
 
-       
+
 
     }
 
@@ -145,5 +157,4 @@ public class main extends AppCompatActivity {
         editor.putString(key, value);
         editor.commit();
     }
-
 }

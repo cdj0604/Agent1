@@ -133,5 +133,21 @@
         </TextView>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/토스트확인"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <!--
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="check"
+            android:id="@+id/check">
+
+        </TextView>
+        -->
+    </LinearLayout>
+
 
 </LinearLayout>

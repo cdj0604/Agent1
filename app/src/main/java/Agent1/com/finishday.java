@@ -104,13 +104,12 @@ public class finishday extends Activity {
             calendar2.set(Calendar.DATE, dDay);
 
             start=calendar.getTimeInMillis()/(24*60*60*1000);//입소날변환
-            today=calendar.getTimeInMillis()/(24*60*60*1000);
-            dday=calendar2.getTimeInMillis()/(24*60*60*1000);
+            today=calendar.getTimeInMillis()/(24*60*60*1000);//오늘날짜를 상수로 변환
+            dday=calendar2.getTimeInMillis()/(24*60*60*1000);//소집해제 선택날짜를 상수로 변환
             result=dday-today; //현재까지 복무일
             result1=dday-today;
             resultValue1=(int)result; //소집해재Dday
             UpdateDday();
-
         }
 
     };
@@ -118,9 +117,9 @@ public class finishday extends Activity {
     void UpdateDday(){
         textDday.setText(String.format("%d.%d.%d", dYear,dMonth+1,dDay));  //선택 날짜 출력*/
         /* textResult.setText(String.format("%d 일",result)); //복무일수*/
+        dday=calendar2.getTimeInMillis()/(24*60*60*1000);//소집해제 선택날짜를 상수로 변환
         setPreference(key02, String.valueOf(dday));
         String date = String.format("%d.%d.%d", dYear,dMonth+1,dDay);
-
         SharedPreferences pref = getSharedPreferences("date", Activity.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("date", date);
