@@ -65,7 +65,7 @@ public class main extends AppCompatActivity {
         SharedPreferences pref1 = getSharedPreferences("PREFERENCE2",Activity.MODE_PRIVATE);
         String b = pref1.getString("key02",String.valueOf(0));//b에 소집해제 정수값으로받아옴
         Log.d("날짜값",b);
-        int Finishr = Integer.parseInt(b); //r==소집해제 선택날 (r-현재) //b값을 디데이 계산을위해 인트로 변환
+        int Finishr = Integer.parseInt(b); //Finishr==소집해제 선택날 (r-현재) /b값을 디데이 계산을위해 인트로 변환
         int result = Finishr-r1;
 
         String result1 = Integer.toString(result); //텍스트뷰에 넣기위해 결과값 스트링으로 변환
@@ -79,7 +79,7 @@ public class main extends AppCompatActivity {
         SharedPreferences pref = getSharedPreferences("PREFERENCE", Activity.MODE_PRIVATE);
         String a =  pref.getString("key01", String.valueOf(0));
         int Startr = Integer.parseInt(a);
-        int Startresult = r1 - Startr + 2;
+        int Startresult = r1 - Startr+1;
 
         String Startresult1 = Integer.toString(Startresult);//텍스트뷰에 넣기위해 결과값 스트링으로 변환
         textView.setText( Startresult1); //현재까지 총 복무일수 text

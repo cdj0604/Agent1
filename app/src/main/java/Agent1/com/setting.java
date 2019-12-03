@@ -72,10 +72,6 @@ public class setting extends Activity {
 
 public void asd(){
 
-    SharedPreferences pref = getSharedPreferences(PREFERENCE, MODE_PRIVATE);
-    SharedPreferences.Editor editor = pref.edit();
-    editor.clear();
-    editor.commit();
     Intent intent = new Intent(this,startday.class);
     startActivity(intent);
     finish();
